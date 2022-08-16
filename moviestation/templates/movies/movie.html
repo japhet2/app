@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cinemania</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	{% include "./header.html" %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">	
+				<img class="card-img-top" src="/{{movie.poster}}" alt="{{ movie.title }}" style="width:100%">
+			</div>
+			<div class="col-md-8">
+				<div class="card-body">
+					<a href="/movie_details/{{ movie.id }}">
+						<h3 class="card-title">{{ movie.title }}</h3>
+					</a>
+					<p class="card-text">Released on {{ movie.release_date }}</p>
+					<p class="card-text">Main Actors: {{ movie.main_actors }}</p>
+					<p class="card-text">Genre: {{ movie.genre }}</p>
+					<p class="card-text">Synopsis: {{ movie.synopsis }}</p>
+					<p class="card-text">Date Posted: {{ movie.created_at }}</p>
+					<a href="{{movie.trailer}}" target="_blank" class="btn btn-primary">Watch Trailer</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

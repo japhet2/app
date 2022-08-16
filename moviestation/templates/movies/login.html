@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<style>
+		body{
+			color:white;
+			background-image:url("/static/k.jpg");
+			height:650px;
+			
+		}
+		.main{
+			margin-left:500px;
+			margin-top:200px;
+			border-radiuss:30%;
+			box-shadow: 0 14px 28px rgba(0,0,0,0.25); 0 10px 10px rgba(0,0,0,.22);
+			position:center;
+			width:500px;
+			text-align:center;
+			background-color:green;
+		}
+		
+		
+		label{
+			font-family:italic;
+		}
+		input{
+			background-color:#eee;
+			border-radius:5px;
+		
+
+		}
+		
+	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+</head>
+
+<body >
+
+
+	<div class='main'>
+	<h1>Login</h1>
+	<form method="POST" action="/login">
+		{%csrf_token%}
+		<input type="text" name="username" placeholder="Enter Username"><br><br>
+		<input type="password" name="password" placeholder="Enter Password"><br><br>
+		{{message}}<br>
+		<input type="submit" name="login" value="Login">
+		<p>Don't have an account?</p>
+		<a href="/signup">Sign Up</a>
+	</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cinemania</title>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head >
+<body>
+	{% include "./header.html" %}
+	<div class="container">
+		<div class="row">
+
+			{% if latest_movies_list %}
+			
+				{% for movie in latest_movies_list %}
+				<div class="col-md-3" style="margin-bottom:10px">
+					<div class="card">
+						<a href="/movie_details/{{ movie.id }}">
+							<img class="card-img-top" src="/{{movie.poster}}" alt="{{ movie.title }}" style="width:100%">
+						</a>
+						<div class="card-body">
+							<a href="/movie_details/{{ movie.id }}">
+								<h4 class="card-title">{{ movie.title }}</h4>
+							</a>
+							<p class="card-text">Released on {{ movie.release_date }}</p>
+							<a href="{{movie.trailer}}" target="_blank" class="btn btn-primary">Watch Trailer</a>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			{% else %}
+				<p class="text-center">No movies are available in {{genre}}.</p>
+			{% endif %}
+		</div>
+	</div>
+</body>
+</html>

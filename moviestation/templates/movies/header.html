@@ -1,0 +1,44 @@
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>                        
+		</button>
+		<a class="navbar-brand" href="/">Cinemania</a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/genre/action">Action</a></li>
+				<li><a href="/genre/romance">Romance</a></li>
+				<li><a href="/genre/thriller">Thriller</a></li>
+				<li><a href="/genre/comedy">Comedy</a></li>
+				<li><a href="/genre/others">Others</a></li>
+			</ul>
+			<form class="navbar-form navbar-left" action="/search" method="get">
+				<div class="input-group">
+					<input type="text" required class="form-control" placeholder="Search by title, actors,..." name="keyword">
+					{% comment %} <div class="input-group-btn">
+						<button class="btn btn-default" type="submit">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</div> {% endcomment %}
+				</div>
+			</form>
+			<ul class="nav navbar-nav navbar-right" style="align-items: center;display: flex;">
+				<li>
+					<a href="/addmovie" class="btn btn-md btn-primary" style="padding: 0px 10px 0px;color:#fff">New Movie</a>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">@{{ first_name }} <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="javascript:;">{{ first_name }} {{ last_name }}</a></li>
+						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

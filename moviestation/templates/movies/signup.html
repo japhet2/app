@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body{
+			background-color:white;
+			background-image:url("/static/k.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		.main{
+			margin-left:450px;
+			margin-top:60px;
+			border-radiuss:30%;
+			box-shadow: 0 14px 28px rgba(0,0,0,0.25); 0 10px 10px rgba(0,0,0,.22);
+			position:center;
+			width:500px;
+			text-align:center
+		}
+		label{
+			font-family:italic;
+			font-size:20px
+		}
+		input{
+			background-color:#eee;
+			border-radius:5px;
+		}
+		#gender{
+			margin-left:30%;
+			display:flex;
+		}
+		Select{
+			height:30px
+		}
+		.main{
+			background-color:green;
+			opacity:0.8
+		}
+
+	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cinemana | Signup</title>
+</head>
+<body>
+	<div class='main'>
+	<h1>Sign Up</h1>
+	<form method="POST" action="/signup" enctype="multipart/form-data">
+		{%csrf_token%}
+		<input type="text" name="first_name" placeholder="Enter First Name"><br><br>
+		<input type="text" name="last_name" placeholder="Enter Last Name"><br><br>
+		<div id='gender'>
+		<label>Gender</label><span>
+		<Select  name='gender'>
+			<option>Male</option>
+			<option>Female</option>
+		</select></span>
+	</div>
+		<h5>date_of_birth</h5>
+		<input type="date" name="date_of_birth" ><br>
+		<br>
+		<h4>Choose Your profile_image</h4>
+		<input type="file" name="profile_image" placeholder="Select Image"><br><br>
+		<input type="text" name="username" placeholder="Enter Username"><br><br>
+		<input type="password" name="password" placeholder="Enter Password"><br><br>
+		{{message}}<br>
+		<input type="submit" name="Login" value="sign Up">
+		<p>Already have an account?</p>
+		<a href="/login">Login</a>
+	</form>
+</div>
+</body>
+</html>
